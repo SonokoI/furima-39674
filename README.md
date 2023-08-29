@@ -16,6 +16,7 @@
 has_one :address
 has_many :items
 
+
 ## addresses テーブル
 | Column             | Type       | Options     |
 | ------------------ | ---------- | ------------|
@@ -33,6 +34,7 @@ has_many :items
 ### Association
 belong_to :user
 belong_to :item
+has_one :payment
 
 
 ## items テーブル
@@ -44,4 +46,28 @@ belong_to :item
 
 ### Association
 belongs_to :user
+has_one :order
+
+
+## orders テーブル
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| user               | references | null: false, foreign_key: true |
+| item               | references | null: false, foreign_key: true |
+
+### Association
+belongs_to :user
+belongs_to :item
+has_one :payment
+
+
+## payments テーブル
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| address            | references | null: false, foreign_key: true |
+| order              | references | null: false, foreign_key: true |
+
+### Association
+belongs_to :address
+belongs_to :order
 
