@@ -11,24 +11,24 @@
 | first_name_kana    | string     | null: false              |
 | last_name_kana     | string     | null: false              |
 | birthday           | date       | null: false              |
-| postal_code        | references | null: false              |
-| prefecture_id      | integer    | null: false              |
-| county/city_id     | integer    | null: false              |
-| street             | string     | null: false              |
-| building           | string     |                          |
-| phone              | strings    | null: false              |
 
 ### Association
 has_many :items
-has_one :payment
+has_many :orders
 
 
 ## items テーブル
 | Column             | Type       | Options     |
 | ------------------ | ---------- | ------------|
 | item_name          | string     | null: false |
-| description        | string     | null: false |
+| description        | text       | null: false |
 | price              | integer    | null: false |
+| category_id        | integer    | null: false |
+| condition_id       | integer    | null: false |
+| shipping_cost_id   | integer    | null: false |
+| shipping_area_id   | integer    | null: false |
+| shipping_date      | integer    | null: false |
+
 
 ### Association
 belongs_to :user
@@ -50,8 +50,13 @@ has_one :payment
 ## payments テーブル
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| address            | references | null: false, foreign_key: true |
 | order              | references | null: false, foreign_key: true |
+| postcode           | string     | null: false                    |
+| prefecture_id      | integer    | null: false                    |
+| city               | string     | null: false                    |
+| block              | string     | null: false                    |
+| building           | string     |                                |
+| phone              | integer    | null: false                    |
 
 ### Association
 belongs_to :order
