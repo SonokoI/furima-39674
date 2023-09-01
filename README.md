@@ -57,7 +57,7 @@ has_one :payment
 | city               | string     | null: false                    |
 | block              | string     | null: false                    |
 | building           | string     |                                |
-| phone              | integer    | null: false                    |
+| phone              | string     | null: false                    |
 
 ### Association
 belongs_to :order
