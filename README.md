@@ -20,7 +20,7 @@ has_many :orders
 ## items テーブル
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | -------------------------------|
-| user               | references | null: false, foreign_key: true |
+| users_id           | references | null: false, foreign_key: true |
 | item_name          | string     | null: false                    |
 | description        | text       | null: false                    |
 | price              | integer    | null: false                    |
@@ -51,7 +51,8 @@ has_one :payment
 ## payments テーブル
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| order              | references | null: false, foreign_key: true |
+| users_id           | references | null: false, foreign_key: true |
+| orders_id          | references | null: false, foreign_key: true |
 | postcode           | string     | null: false                    |
 | prefecture_id      | integer    | null: false                    |
 | city               | string     | null: false                    |
