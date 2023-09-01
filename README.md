@@ -20,14 +20,14 @@ has_many :orders
 ## items テーブル
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | -------------------------------|
-| users_id           | references | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
 | item_name          | string     | null: false                    |
 | description        | text       | null: false                    |
 | price              | integer    | null: false                    |
 | category_id        | integer    | null: false                    |
 | condition_id       | integer    | null: false                    |
 | shipping_cost_id   | integer    | null: false                    |
-| shipping_area_id   | integer    | null: false                    |
+| prefecture_id      | integer    | null: false                    |
 | shipping_date_id   | integer    | null: false                    |
 
 
@@ -51,8 +51,7 @@ has_one :payment
 ## payments テーブル
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| users_id           | references | null: false, foreign_key: true |
-| orders_id          | references | null: false, foreign_key: true |
+| order              | references | null: false, foreign_key: true |
 | postcode           | string     | null: false                    |
 | prefecture_id      | integer    | null: false                    |
 | city               | string     | null: false                    |
